@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "p1",
+    "Name": "Product 1",
+    "Description": "Sample",
+    "Summary": "Sample",
+    "Price": 101,
+    "ImageFile": "images/products/product1.png",
+    "Types": {
+      "Id": "t1",
+      "Name": "Shoes"
+    },
+    "Brands": {
+      "Id": "b1",
+      "Name": "Adidas"
+    }
+  },
+  {
+    "Id": "p2",
+    "Name": "Product 2",
+    "Description": "Sample",
+    "Summary": "Sample",
+    "Price": 102,
+    "ImageFile": "images/products/product2.png",
+    "Types": {
+      "Id": "t1",
+      "Name": "Shoes"
+    },
+    "Brands": {
+      "Id": "b1",
+      "Name": "Adidas"
+    }
+  },
+  {
+    "Id": "p3",
+    "Name": "Product 3",
+    "Description": "Sample",
+    "Summary": "Sample",
+    "Price": 103,
+    "ImageFile": "images/products/product3.png",
+    "Types": {
+      "Id": "t1",
+      "Name": "Shoes"
+    },
+    "Brands": {
+      "Id": "b1",
+      "Name": "Adidas"
+    }
+  },
+  {
+    "Id": "p4",
+    "Name": "Product 4",
+    "Description": "Sample",
+    "Summary": "Sample",
+    "Price": 104,
+    "ImageFile": "images/products/product4.png",
+    "Types": {
+      "Id": "t1",
+      "Name": "Shoes"
+    },
+    "Brands": {
+      "Id": "b1",
+      "Name": "Adidas"
+    }
+  },
+  {
+    "Id": "p5",
+    "Name": "Product 5",
+    "Description": "Sample",
+    "Summary": "Sample",
+    "Price": 105,
+    "ImageFile": "images/products/product5.png",
+    "Types": {
+      "Id": "t1",
+      "Name": "Shoes"
+    },
+    "Brands": {
+      "Id": "b1",
+      "Name": "Adidas"
+    }
+  }
+]
