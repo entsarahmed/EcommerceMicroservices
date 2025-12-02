@@ -6,8 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Catalog.Core.Entities;
-public class ProductType
+public class ProductType : BaseEntity
 {
     //[BsonElement("name")]
-    public string Name { get; set; }
+    public string? Name { get; set; }
 }
