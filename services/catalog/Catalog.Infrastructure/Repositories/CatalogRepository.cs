@@ -52,7 +52,7 @@ public class CatalogRepository : IProductRepository,IBrandRepository, ITypeRepos
     public async Task<bool> DeleteProduct(string id)
     {
        var DeletedProduct = await _context.Products.DeleteOneAsync(p => p.Id ==id);
-    //IsAchknowledge ==> MongoDb understand request delete and run 
+    //IsAcknowledge ==> MongoDb understand request delete and run 
         return DeletedProduct.IsAcknowledged && DeletedProduct.DeletedCount > 0;
     }
     public async Task<IEnumerable<ProductBrand>> GetAllBrands()

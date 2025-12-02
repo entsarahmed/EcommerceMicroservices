@@ -10,4 +10,18 @@
     <ProjectReference Include="..\Catalog.Core\Catalog.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="CQRS\Commands\" />
+    <Folder Include="CQRS\Handlers\Commands\" />
+    <Folder Include="CQRS\Handlers\Queries\" />
+    <Folder Include="CQRS\Queries\" />
+    <Folder Include="Mappers\" />
+    <Folder Include="Responses\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="16.0.0-beta-1" />
+    <PackageReference Include="MediatR" Version="14.0.0-beta-1" />
+  </ItemGroup>
+
 </Project>
