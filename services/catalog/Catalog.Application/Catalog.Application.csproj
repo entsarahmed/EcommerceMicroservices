@@ -13,10 +13,6 @@
   <ItemGroup>
     <Folder Include="CQRS\Commands\" />
     <Folder Include="CQRS\Handlers\Commands\" />
-    <Folder Include="CQRS\Handlers\Queries\" />
-    <Folder Include="CQRS\Queries\" />
-    <Folder Include="Mappers\" />
-    <Folder Include="Responses\" />
   </ItemGroup>
 
   <ItemGroup>
