@@ -14,5 +14,6 @@ public class CatalogMappingProfile: Profile
     {
         // ReverseMap ==> Convert from ProductBrand to BrandResponseDto or BrandResponseDto to ProductBrand
         CreateMap<ProductBrand, BrandResponseDto>().ReverseMap();
+        CreateMap<Product,ProductResponseDto>().ReverseMap()
     }
 }
