@@ -1,10 +1,31 @@
 //Program.cs ===> File API Configuration( Handling MiddleWares & PipeLines)
+using Catalog.Application.Mappers;
+using Catalog.Core.Repositories;
+using Catalog.Infrastructure.Data.Contexts;
+using Catalog.Infrastructure.Repositories;
+using System.Reflection;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+
+builder.Services.AddAutoMapper(typeof(CatalogMappingProfile).Assembly);
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
+builder.Services.AddScoped<ICatalogContext, CatalogContext>();
+builder.Services.AddScoped<IProductRepository,CatalogRepository>();
+builder.Services.AddScoped<IBrandRepository, CatalogRepository>();
+builder.Services.AddScoped<ITypeRepository, CatalogRepository>();
+
+///Using ApiVersioning
+builder.Services.AddApiVersioning(options =>
+{
+    options.ReportApiVersions = true;
+    options.AssumeDefaultVersionWhenUnspecified = true;
+    options.DefaultApiVersion = new Asp.Versioning.ApiVersion(1,0);
+});
 
 
 builder.Services.AddSwaggerGen(options =>
