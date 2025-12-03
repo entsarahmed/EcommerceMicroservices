@@ -1,4 +1,5 @@
 //Program.cs ===> File API Configuration( Handling MiddleWares & PipeLines)
+using Catalog.Application.CQRS.Queries;
 using Catalog.Application.Mappers;
 using Catalog.Core.Repositories;
 using Catalog.Infrastructure.Data.Contexts;
@@ -13,7 +14,7 @@ builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 
 builder.Services.AddAutoMapper(typeof(CatalogMappingProfile).Assembly);
-builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly(), Assembly.GetAssembly(typeof(GetProductByIdQuery))));
 builder.Services.AddScoped<ICatalogContext, CatalogContext>();
 builder.Services.AddScoped<IProductRepository,CatalogRepository>();
 builder.Services.AddScoped<IBrandRepository, CatalogRepository>();
