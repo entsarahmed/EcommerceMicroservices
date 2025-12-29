@@ -7,6 +7,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Catalog.Application.CQRS.Queries;
-public class GetAllBrandsQuery:IRequest<List<BrandResponseDto>>
+public class GetAllBrandsQuery:IRequest<IList<BrandResponseDto>>
 {
 }

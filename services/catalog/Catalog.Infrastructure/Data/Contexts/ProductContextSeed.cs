@@ -12,16 +12,29 @@ public static class ProductContextSeed
 {
    public static async Task DataSeedAsync(IMongoCollection<Product> productCollection)
     {
-        var hasProduct = await productCollection.Find(_ => true).AnyAsync();
-        if (hasProduct)
+        // 1️⃣ Prevent duplicate seeding
+        if (await productCollection.CountDocumentsAsync(_ => true) > 0)
             return;
-        var filePath = Path.Combine("Data", "DataSeed", "products.json");
-        if (!File.Exists(filePath))
-            throw new FileNotFoundException($"this filePath Not exist {filePath}");
-        var productJson = await File.ReadAllTextAsync(filePath);
-        var products = JsonSerializer.Deserialize<List<Product>>(productJson);
-        if (products?.Any() is true)
-            await productCollection.InsertManyAsync(products);
 
+        // 2️⃣ Locate seed file
+        var filePath = Path.Combine("Data", "SeedData", "products.json");
+
+        if (!File.Exists(filePath))
+            throw new FileNotFoundException($"Seed file not found: {filePath}");
+
+        // 3️⃣ Read JSON
+        var productJson = await File.ReadAllTextAsync(filePath);
+
+        // 4️⃣ Deserialize (IMPORTANT PART)
+        var products = JsonSerializer.Deserialize<List<Product>>(
+            productJson,
+            new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            });
+
+        // 5️⃣ Insert into MongoDB
+        if (products is { Count: > 0 })
+            await productCollection.InsertManyAsync(products);
     }
 }

@@ -1,6 +1,34 @@
 [
   {
-    "Id": "t1",
-    "Name": "Shoes"
+    "Id": "0",
+    "Name": "Frappuccino"
+  },
+  {
+    "Id": "0",
+    "Name": "Latte"
+  },
+  {
+    "Id": "0",
+    "Name": "Mocha"
+  },
+  {
+    "Id": "0",
+    "Name": "Macchiato"
+  },
+  {
+    "Id": "0",
+    "Name": "Matcha"
+  },
+  {
+    "Id": "0",
+    "Name": "Cake"
+  },
+  {
+    "Id": "0",
+    "Name": "Donuts"
+  },
+  {
+    "Id": "0",
+    "Name": "Salad"
   }
 ]
