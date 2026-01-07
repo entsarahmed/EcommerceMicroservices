@@ -31,7 +31,7 @@ public class CatalogRepository : IProductRepository,IBrandRepository, ITypeRepos
     }
     public async Task<IEnumerable<Product>> GetAllProductsByBrand(string name)
     {
-        return await _context.Products.Find(p => p.Brand.Name == name).ToListAsync();
+        return await _context.Products.Find(p => p.Brand!.Name == name).ToListAsync();
     }
     public async Task<IEnumerable<Product>> GetAllProductsByName(string name)
     {

@@ -10,14 +10,16 @@ using System.Threading.Tasks;
 namespace Catalog.Infrastructure.Data.Contexts;
 public static class ProductContextSeed
 {
-   public static async Task DataSeedAsync(IMongoCollection<Product> productCollection)
+   public static async Task SeedDataAsync(IMongoCollection<Product> productCollection)
     {
         // 1️⃣ Prevent duplicate seeding
-        if (await productCollection.CountDocumentsAsync(_ => true) > 0)
+        var hasType = await productCollection.Find(_ => true).AnyAsync();
+        if (hasType)
             return;
 
         // 2️⃣ Locate seed file
-        var filePath = Path.Combine("Data", "SeedData", "products.json");
+        var basePath = AppContext.BaseDirectory;
+        var filePath = Path.Combine(basePath, "Data", "SeedData", "products.json");
 
         if (!File.Exists(filePath))
             throw new FileNotFoundException($"Seed file not found: {filePath}");
@@ -26,7 +28,7 @@ public static class ProductContextSeed
         var productJson = await File.ReadAllTextAsync(filePath);
 
         // 4️⃣ Deserialize (IMPORTANT PART)
-        var products = JsonSerializer.Deserialize<List<Product>>(
+        var products = JsonSerializer.Deserialize<List<Product>>(//productJson);  
             productJson,
             new JsonSerializerOptions
             {
@@ -34,7 +36,9 @@ public static class ProductContextSeed
             });
 
         // 5️⃣ Insert into MongoDB
-        if (products is { Count: > 0 })
+        if (products?.Any() is true)
             await productCollection.InsertManyAsync(products);
     }
+
+    
 }

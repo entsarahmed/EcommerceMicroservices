@@ -1,292 +1,130 @@
 [
   {
-    "Id": "69504a929b3da7fdb48c44be",
+    "Id": "702d2149e773f2a3990b4f01",
     "Name": "Double Caramel Frappuccino",
-    "Description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
+    "Description": "Rich espresso blended with caramel and ice.",
     "Summary": "Sample",
     "Price": 200,
     "ImageFile": "images/products/double-caramel-frappuccino.png",
     "Type": {
-      "Id": "0",
+      "Id": "69535562b220329ad8b7935f",
       "Name": "Frappuccino"
     },
     "Brand": {
-      "Id": "0",
+      "Id": "6952a8f7fd2463c7520c5690",
       "Name": "Starbucks"
     }
   },
   {
-    "Id": "69504a929b3da7fdb48c44bf",
+    "Id": "702d2149e773f2a3990b4f02",
     "Name": "White Chocolate Mocha Frappuccino",
-    "Description": "Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus.",
+    "Description": "White chocolate flavor blended with espresso.",
     "Summary": "Sample",
     "Price": 150,
     "ImageFile": "images/products/white-chocolate-mocha-frappuccino.png",
     "Type": {
-      "Id": "0",
-      "Name": "Latte"
+      "Id": "69535562b220329ad8b7935f",
+      "Name": "Frappuccino"
     },
     "Brand": {
-      "Id": "0",
+      "Id": "6952a8f7fd2463c7520c5690",
       "Name": "Starbucks"
     }
-
   },
   {
-    "Id": "69504a929b3da7fdb48c44c0",
+    "Id": "702d2149e773f2a3990b4f03",
     "Name": "Iced Cafe Latte",
-    "Description": "Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.",
+    "Description": "Chilled espresso with milk and ice.",
     "Summary": "Sample",
     "Price": 180,
     "ImageFile": "images/products/iced-cafe-latte.png",
     "Type": {
-      "Id": "0",
+      "Id": "69535562b220329ad8b79360",
       "Name": "Latte"
     },
     "Brand": {
-      "Id": "0",
+      "Id": "6952a8f7fd2463c7520c5690",
       "Name": "Starbucks"
     }
   },
   {
-    "Id": "69504a929b3da7fdb48c44c1",
+    "Id": "702d2149e773f2a3990b4f04",
     "Name": "White Chocolate Mocha",
-    "Description": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci.",
+    "Description": "Classic mocha with white chocolate.",
     "Summary": "Sample",
     "Price": 300,
     "ImageFile": "images/products/white-chocolate-mocha.png",
     "Type": {
-      "Id": "0",
+      "Id": "69535562b220329ad8b79361",
       "Name": "Mocha"
     },
     "Brand": {
-      "Id": "0",
+      "Id": "6952a8f7fd2463c7520c5691",
       "Name": "Costa"
     }
   },
   {
-    "Id": "69504a929b3da7fdb48c44c2",
+    "Id": "702d2149e773f2a3990b4f05",
     "Name": "Iced Caramel Macchiato",
-    "Description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
+    "Description": "Espresso with caramel and milk over ice.",
     "Summary": "Sample",
     "Price": 250,
     "ImageFile": "images/products/iced-caramel-macchiato.png",
     "Type": {
-      "Id": "0",
+      "Id": "69535562b220329ad8b79362",
       "Name": "Macchiato"
     },
     "Brand": {
-      "Id": "0",
+      "Id": "6952a8f7fd2463c7520c5690",
       "Name": "Starbucks"
     }
   },
   {
-    "Id": "69504a929b3da7fdb48c44c3",
-    "Name": "Hot Caramel Macchiato",
-    "Description": "Aenean nec lorem. In porttitor. Donec laoreet nonummy augue.",
-    "Summary": "Sample",
-    "Price": 120,
-    "ImageFile": "images/products/hot-caramel-macchiato.png",
-    "Type": {
-      "Id": "0",
-      "Name": "Macchiato"
-    },
-    "Brand": {
-      "Id": "0",
-      "Name": "On The Run"
-    }
-  },
-  {
-    "Id": "69504a929b3da7fdb48c44c4",
-    "Name": "Iced Matcha Latte",
-    "Description": "Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
-    "Summary": "Sample",
-    "Price": 10,
-    "ImageFile": "images/products/iced-matcha-latte.png",
-    "Type": {
-      "Id": "0",
-      "Name": "Macchiato"
-    },
-    "Brand": {
-      "Id": "0",
-      "Name": "On The Run"
-    }
-  },
-  {
-    "Id": "69504a929b3da7fdb48c44c5",
+    "Id": "702d2149e773f2a3990b4f06",
     "Name": "Honey Cake",
-    "Description": "Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.",
+    "Description": "Soft layered cake sweetened with honey.",
     "Summary": "Sample",
     "Price": 8,
     "ImageFile": "images/products/honey-cake.png",
     "Type": {
-      "Id": "0",
-      "Name": "Macchiato"
+      "Id": "69535562b220329ad8b79364",
+      "Name": "Cake"
     },
     "Brand": {
-      "Id": "0",
+      "Id": "6952a8f7fd2463c7520c5694",
       "Name": "On The Run"
     }
   },
   {
-    "Id": "69504a929b3da7fdb48c44c6",
-    "Name": "Blueberry Cheesecake",
-    "Description": "Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
-    "Summary": "Sample",
-    "Price": 15,
-    "ImageFile": "images/products/blueberry-cheesecake.png",
-    "Type": {
-      "Id": "0",
-      "Name": "Macchiato"
-    },
-    "Brand": {
-      "Id": "0",
-      "Name": "On The Run"
-    }
-  },
-  {
-    "Id": "69504a929b3da7fdb48c44c7",
+    "Id": "702d2149e773f2a3990b4f07",
     "Name": "Glazed Donuts",
-    "Description": "Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus.",
+    "Description": "Classic glazed donuts freshly made.",
     "Summary": "Sample",
     "Price": 18,
     "ImageFile": "images/products/glazed-donuts.png",
     "Type": {
-      "Id": "0",
-      "Name": "Macchiato"
+      "Id": "69535562b220329ad8b79365",
+      "Name": "Donuts"
     },
     "Brand": {
-      "Id": "0",
-      "Name": "On The Run"
+      "Id": "6952a8f7fd2463c7520c5696",
+      "Name": "Krispy Kreme"
     }
   },
   {
-    "Id": "69504a929b3da7fdb48c44c8",
+    "Id": "702d2149e773f2a3990b4f08",
     "Name": "Greek Salad",
-    "Description": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci.",
+    "Description": "Fresh vegetables with feta cheese.",
     "Summary": "Sample",
     "Price": 15,
     "ImageFile": "images/products/greek-salad.png",
     "Type": {
-      "Id": "0",
-      "Name": "Macchiato"
+      "Id": "69535562b220329ad8b79366",
+      "Name": "Salad"
     },
     "Brand": {
-      "Id": "0",
-      "Name": "On The Run"
-    }
-  },
-  {
-    "Id": "69504a929b3da7fdb48c44c9",
-    "Name": "Iced Black Tea Lemonade",
-    "Description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa.",
-    "Summary": "Sample",
-    "Price": 16,
-    "ImageFile": "images/products/iced-black-tea-lemonade.png",
-    "Type": {
-      "Id": "0",
-      "Name": "Macchiato"
-    },
-    "Brand": {
-      "Id": "0",
-      "Name": "On The Run"
-    }
-  },
-  {
-    "Id": "69504a929b3da7fdb48c44ca",
-    "Name": "Iced London Fog Tea Latte",
-    "Description": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci.",
-    "Summary": "Sample",
-    "Price": 14,
-    "ImageFile": "images/products/iced-london-fog-tea-latte.png",
-    "Type": {
-      "Id": "0",
-      "Name": "Macchiato"
-    },
-    "Brand": {
-      "Id": "0",
-      "Name": "On The Run"
-    }
-  },
-  {
-    "Id": "69504a929b3da7fdb48c44cb",
-    "Name": "Turkey Bacon, Cheddar & Egg White Sandwich",
-    "Description": "Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.",
-    "Summary": "Sample",
-    "Price": 250,
-    "ImageFile": "images/products/turkey-bacon-cheddar-and-egg-white-sandwich.png",
-    "Type": {
-      "Id": "0",
-      "Name": "Macchiato"
-    },
-    "Brand": {
-      "Id": "0",
-      "Name": "On The Run"
-    }
-  },
-  {
-    "Id": "69504a929b3da7fdb48c44cc",
-    "Name": "Iced Matcha",
-    "Description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
-    "Summary": "Sample",
-    "Price": 189.99,
-    "ImageFie": "images/products/iced-matcha.png",
-    "Type": {
-      "Id": "0",
-      "Name": "Macchiato"
-    },
-    "Brand": {
-      "Id": "0",
-      "Name": "On The Run"
-    }
-  },
-  {
-    "Id": "69504a929b3da7fdb48c44cd",
-    "Name": "Double-Smoked Bacon, Cheddar & Egg Sandwich",
-    "Description": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci.",
-    "Summary": "Sample",
-    "Price": 199.99,
-    "ImageFile": "images/products/double-smoked-bacon-cheddar-and-egg-sandwich.png",
-    "Type": {
-      "Id": "0",
-      "Name": "Macchiato"
-    },
-    "Brand": {
-      "Id": "0",
-      "Name": "On The Run"
-    }
-  },
-  {
-    "Id": "69504a929b3da7fdb48c44ce",
-    "Name": "Iced Chai Tea Latte with Oleato Golden Foam",
-    "Description": "Aenean nec lorem. In porttitor. Donec laoreet nonummy augue.",
-    "Summary": "Sample",
-    "Price": 150,
-    "ImageFile": "images/products/iced-chai-tea-latte-with-oleato-golden-foam.png",
-    "Type": {
-      "Id": "0",
-      "Name": "Macchiato"
-    },
-    "Brand": {
-      "Id": "0",
-      "Name": "On The Run"
-    }
-  },
-  {
-    "Id": "69504a929b3da7fdb48c44cf",
-    "Name": "Dragon Drink® Starbucks Refreshers® Beverage with Oleato Golden Foam",
-    "Description": "Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.",
-    "Summary": "Sample",
-    "Price": 180,
-    "ImageFile": "images/products/dragon-drink-starbucks-refreshers-beverage-with-oleato-golden-foam.png",
-    "Type": {
-      "Id": "0",
-      "Name": "Macchiato"
-    },
-    "Brand": {
-      "Id": "0",
-      "Name": "On The Run"
+      "Id": "6952a8f7fd2463c7520c5692",
+      "Name": "Cilantro"
     }
   }
-
 ]

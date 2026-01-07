@@ -14,11 +14,13 @@ builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 
 builder.Services.AddAutoMapper(typeof(CatalogMappingProfile).Assembly);
-builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly(), Assembly.GetAssembly(typeof(GetProductByIdQuery))));
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly(), Assembly.GetAssembly(typeof(GetProductByIdQuery))!));
 builder.Services.AddScoped<ICatalogContext, CatalogContext>();
 builder.Services.AddScoped<IProductRepository,CatalogRepository>();
 builder.Services.AddScoped<IBrandRepository, CatalogRepository>();
 builder.Services.AddScoped<ITypeRepository, CatalogRepository>();
+
+
 
 ///Using ApiVersioning
 builder.Services.AddApiVersioning(options =>
@@ -47,6 +49,17 @@ builder.Services.AddSwaggerGen(options =>
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
+
+
+//////Make Seed to Check on Data
+//using (var scope = app.Services.CreateScope())
+//{
+//    var context = scope.ServiceProvider.GetRequiredService<ICatalogContext>();
+
+//    await BrandContextSeed.SeedDataAsync(context.Brands);
+//    await TypeContextSeed.SeedDataAsync(context.Types);
+//    await ProductContextSeed.DataSeedAsync(context.Products);
+//}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

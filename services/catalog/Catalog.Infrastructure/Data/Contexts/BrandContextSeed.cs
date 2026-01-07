@@ -17,10 +17,11 @@ public static class BrandContextSeed
         if (hasBrands)
             return;
         //Get File Path as string
-        var filePath = Path.Combine("Data","SeedData","brands.json");
-         
+        var basePath = AppContext.BaseDirectory;
+        var filePath = Path.Combine(basePath, "Data", "SeedData", "brands.json");
+
         //Check on file Path Do you Find?
-        if(!File.Exists(filePath))
+        if (!File.Exists(filePath))
         {
             Console.WriteLine($" Seed file Not Exists:{ filePath}");
             return;

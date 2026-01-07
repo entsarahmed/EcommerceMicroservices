@@ -10,8 +10,6 @@ using System.Threading.Tasks;
 namespace Catalog.Infrastructure.Data.Contexts;
 public class CatalogContext : ICatalogContext
 {
-
-
     public IMongoCollection<Product> Products { get; }
 
     public IMongoCollection<ProductBrand> Brands { get; }
@@ -38,13 +36,13 @@ public class CatalogContext : ICatalogContext
         Brands = Database.GetCollection<ProductBrand>(configuration["DatabaseSettings:BrandsCollection"]);
         Types = Database.GetCollection<ProductType>(configuration["DatabaseSettings:TypesCollection"]);
 
-        //Make Seed to Check on Data
-        // _=    -> run and no need return
-           _=ProductContextSeed.DataSeedAsync(Products);
-           _=BrandContextSeed.SeedDataAsync(Brands);
-           _=TypeContextSeed.SeedDataAsync(Types);
+        ////Make Seed to Check on Data
+        //// _=    -> run and no need return
+        _ = ProductContextSeed.SeedDataAsync(Products);
+        _ = BrandContextSeed.SeedDataAsync(Brands);
+        _ = TypeContextSeed.SeedDataAsync(Types);
 
-    
+
     }
 
 

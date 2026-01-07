@@ -15,8 +15,10 @@ public static class TypeContextSeed
         var hasType = await typeCollection.Find(_ => true).AnyAsync();
         if (hasType)
             return;
-        var filePath = Path.Combine("Data", "SeedData", "types.json");
-        if(!File.Exists(filePath))
+
+        var basePath = AppContext.BaseDirectory;
+        var filePath = Path.Combine(basePath, "Data", "SeedData", "types.json");
+        if (!File.Exists(filePath))
            {
               Console.WriteLine($"Seed file not Exists{filePath}");
               return;
