@@ -20,10 +20,36 @@ public class CatalogRepository : IProductRepository, IBrandRepository, ITypeRepo
     {
         _context = context;
     }
-    public async Task<IEnumerable<Product>> GetAllProducts(CatalogSpecParams catalogSpecParams)
+    public async Task<Pagination<Product>> GetAllProducts(CatalogSpecParams catalogSpecParams)
     {
+        // Create Initialization for Filter
+        var builder = Builders<Product>.Filter;
+        var filter = builder.Empty;
+        // check search or BrandId no Empty
+        if (!string.IsNullOrEmpty(catalogSpecParams.Search))
+        {
+            filter = filter & builder.Where(p => p.Name!.ToLower().Contains(catalogSpecParams.Search.ToLower()));
+        }
+        if (!string.IsNullOrEmpty(catalogSpecParams.BrandId))
+        {
+            var brandFilter = builder.Eq(p => p.Brand!.Id, catalogSpecParams.BrandId);
+            filter &= brandFilter;
+        }
+        if (!string.IsNullOrEmpty(catalogSpecParams.TypeId))
+        {
+            var typeFilter = builder.Eq(p => p.Type!.Id, catalogSpecParams.TypeId);
+            filter &= typeFilter;
+        }
+        var TotalItems = await _context.Products.CountDocumentsAsync(filter);
+        var Data = await DataFilter(catalogSpecParams, filter);
+
         // p => true == return All product
-        return await _context.Products.Find(p => true).ToListAsync();
+        return new Pagination<Product>(
+            catalogSpecParams.PageIndex,
+            catalogSpecParams.PageSize,
+            (int)TotalItems,
+            Data
+            );
 
     }
 

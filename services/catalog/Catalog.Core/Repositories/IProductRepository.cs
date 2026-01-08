@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Catalog.Core.Repositories;
 public interface IProductRepository
 {
-    Task<IEnumerable<Product>> GetAllProducts(CatalogSpecParams catalogSpecParams);
+    Task<Pagination<Product>> GetAllProducts(CatalogSpecParams catalogSpecParams);
     Task<Product> GetProductById(string id);
     Task<IEnumerable<Product>> GetAllProductsByName(string name);
     Task<IEnumerable<Product>> GetAllProductsByBrand(string name);
