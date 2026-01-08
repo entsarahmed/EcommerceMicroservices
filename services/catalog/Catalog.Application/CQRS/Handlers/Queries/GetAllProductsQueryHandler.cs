@@ -3,6 +3,7 @@ using Catalog.Application.CQRS.Queries;
 using Catalog.Application.ResponseDtos;
 using Catalog.Core.Entities;
 using Catalog.Core.Repositories;
+using Catalog.Core.Specs;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Catalog.Application.CQRS.Handlers.Queries;
-public class GetAllProductsQueryHandler : IRequestHandler<GetAllProductsQuery, IList<ProductResponseDto>>//GetAllProductsQuery is request ////////IList<ProductResponseDto>  ---this is type of Response
+public class GetAllProductsQueryHandler : IRequestHandler<GetAllProductsQuery, Pagination<ProductResponseDto>>//GetAllProductsQuery is request ////////IList<ProductResponseDto>  ---this is type of Response
 {
     private readonly IMapper _mapper;
     private readonly IProductRepository _productRepository;
@@ -21,10 +22,10 @@ public class GetAllProductsQueryHandler : IRequestHandler<GetAllProductsQuery, I
         _mapper=mapper;
         _productRepository=productRepository;
     }
-    public async Task<IList<ProductResponseDto>> Handle(GetAllProductsQuery request, CancellationToken cancellationToken)
+    public async Task<Pagination<ProductResponseDto>> Handle(GetAllProductsQuery request, CancellationToken cancellationToken)
     {
-        var ProductList = await _productRepository.GetAllProducts();
-        var ProductResponseList = _mapper.Map<IList<Product>,IList<ProductResponseDto>>(ProductList.ToList());
+        var ProductList = await _productRepository.GetAllProducts(request.Spec);
+        var ProductResponseList = _mapper.Map<Pagination<ProductResponseDto>>(ProductList);
         return ProductResponseList;
     }
 }

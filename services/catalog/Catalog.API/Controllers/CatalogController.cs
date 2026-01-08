@@ -1,6 +1,7 @@
 ﻿using Catalog.Application.CQRS.Commands;
 using Catalog.Application.CQRS.Queries;
 using Catalog.Application.ResponseDtos;
+using Catalog.Core.Specs;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -39,9 +40,9 @@ public class CatalogController : BaseApiController
     [HttpGet]
     [Route("GetAllProducts")]
     [ProducesResponseType(typeof(IList<ProductResponseDto>), (int)HttpStatusCode.OK)]
-    public async Task<ActionResult<ProductResponseDto>> GetAllProducts()
+    public async Task<ActionResult<ProductResponseDto>> GetAllProducts([FromQuery] CatalogSpecParams Specs)
     {
-        var query = new GetAllProductsQuery();
+        var query = new GetAllProductsQuery(Specs);
         var result = await _mediator.Send(query);
         return Ok(result);
     }
