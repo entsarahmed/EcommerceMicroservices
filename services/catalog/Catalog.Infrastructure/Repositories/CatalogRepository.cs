@@ -1,6 +1,8 @@
 ﻿using Catalog.Core.Entities;
 using Catalog.Core.Repositories;
+using Catalog.Core.Specs;
 using Catalog.Infrastructure.Data.Contexts;
+using MongoDB.Bson.Serialization.IdGenerators;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -9,21 +11,22 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Catalog.Infrastructure.Repositories;
-public class CatalogRepository : IProductRepository,IBrandRepository, ITypeRepository
+
+public class CatalogRepository : IProductRepository, IBrandRepository, ITypeRepository
 {
     private readonly ICatalogContext _context;
 
     public CatalogRepository(ICatalogContext context)
     {
-        _context=context;
+        _context = context;
     }
-    public async Task<IEnumerable<Product>> GetAllProducts()
+    public async Task<IEnumerable<Product>> GetAllProducts(CatalogSpecParams catalogSpecParams)
     {
         // p => true == return All product
         return await _context.Products.Find(p => true).ToListAsync();
 
     }
-    
+
     public async Task<Product> GetProductById(string id)
     {
         //I want product throw  id 
@@ -45,14 +48,14 @@ public class CatalogRepository : IProductRepository,IBrandRepository, ITypeRepos
     }
     public async Task<bool> UpdateProduct(Product product)
     {
-    var UpdatedProduct= await _context.Products.ReplaceOneAsync(p => p.Id ==product.Id, product);
+        var UpdatedProduct = await _context.Products.ReplaceOneAsync(p => p.Id == product.Id, product);
         return UpdatedProduct.IsAcknowledged && UpdatedProduct.ModifiedCount > 0;
     }
 
     public async Task<bool> DeleteProduct(string id)
     {
-       var DeletedProduct = await _context.Products.DeleteOneAsync(p => p.Id ==id);
-    //IsAcknowledge ==> MongoDb understand request delete and run 
+        var DeletedProduct = await _context.Products.DeleteOneAsync(p => p.Id == id);
+        //IsAcknowledge ==> MongoDb understand request delete and run 
         return DeletedProduct.IsAcknowledged && DeletedProduct.DeletedCount > 0;
     }
     public async Task<IEnumerable<ProductBrand>> GetAllBrands()
@@ -64,4 +67,30 @@ public class CatalogRepository : IProductRepository,IBrandRepository, ITypeRepos
     {
         return await _context.Types.Find(t => true).ToListAsync();
     }
+    private async Task<IReadOnlyList<Product>> DataFilter(CatalogSpecParams catalogSpecParams, FilterDefinition<Product> filter)
+    {
+        var sortDefn = Builders<Product>.Sort.Ascending("Name");
+        if (!string.IsNullOrEmpty(catalogSpecParams.Sort))
+        {
+            switch (catalogSpecParams.Sort)
+            {
+                case "priceAsc":
+                    sortDefn = Builders<Product>.Sort.Ascending(p => p.Price);
+                    break;
+                case "priceDesc":
+                    sortDefn = Builders<Product>.Sort.Descending(p => p.Price);
+                    break;
+                default:
+                    sortDefn = Builders<Product>.Sort.Ascending(p => p.Name);
+                    break;
+            }
+        }
+            return await _context.Products.Find(filter)
+                .Sort(sortDefn)
+                .Skip(catalogSpecParams.PageSize * (catalogSpecParams.PageIndex - 1))
+                .Limit(catalogSpecParams.PageSize)
+                .ToListAsync();
+        
+    }
 }
+
