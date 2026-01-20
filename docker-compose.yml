@@ -24,7 +24,7 @@ services:
      volumes:
       - catalogdata:/data/db
   basketdb:
-     image: mongo
+     image: redis:alpine
      container_name: basketdb
      restart: always
      ports:
@@ -40,7 +40,7 @@ services:
       - basketdb
     environment:
     - ASPNETCORE_URLS=http://+:8000
-     = CacheSettings__ConnectionString=basketdb:6379
+    - CacheSettings__ConnectionString=basketdb:6379
 
 volumes:
   catalogdata:
