@@ -17,7 +17,6 @@
   <ItemGroup>
     <Folder Include="Commands\" />
     <Folder Include="Handlers\Commands\" />
-    <Folder Include="Handlers\Queries\" />
   </ItemGroup>
 
   <ItemGroup>
