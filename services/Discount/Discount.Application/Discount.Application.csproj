@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Protos\discount.proto" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Discount.Core\Discount.Core.csproj" />
   </ItemGroup>
 
@@ -15,7 +19,6 @@
     <Folder Include="Handlers\Commands\" />
     <Folder Include="Handlers\Queries\" />
     <Folder Include="Mapper\" />
-    <Folder Include="Protos\" />
     <Folder Include="Queries\" />
   </ItemGroup>
 
@@ -23,6 +26,10 @@
     <PackageReference Include="AutoMapper" Version="13.0.1" />
     <PackageReference Include="Grpc.AspNetCore" Version="2.76.0" />
     <PackageReference Include="MediatR" Version="14.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="Protos\discount.proto" GrpcServices="Server" />
   </ItemGroup>
 
 </Project>
