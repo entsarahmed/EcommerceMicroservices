@@ -84,6 +84,12 @@ services:
     build:
       context: .
       dockerfile: services/Discount/Discount.API/Dockerfile
+    container_name: discount.api
+    depends_on:
+       discountdb:
+           condition: service_healthy
+    ports:
+     - "8002:8000" 
 
 volumes:
   catalogdata:
