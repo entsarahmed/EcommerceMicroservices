@@ -9,7 +9,7 @@ services:
     depends_on:
       - catalogdb
     environment:
-       AspNetCore_UrlS: http://+:8000
+       ASPNETCORE_URLS: http://+:8000
        DatabaseSettings__ConnectionString: mongodb://catalogdb:27017
        DatabaseSettings__DatabaseName: catalogDb 
        DatabaseSettings__BrandsCollection: Brands
@@ -30,7 +30,7 @@ services:
      ports:
         - "6379:6379"
   discountdb: 
-     image: postgres
+     image: postgres:16
      container_name: discountdb
      environment:
      - POSTGRES_USER=admin
@@ -74,8 +74,7 @@ services:
          container_name: portainer
          restart: always
          ports:
-            - "8000:8000"
-            - "9000:9000"
+            - "8080:9000"
          volumes:
              - portainer_data:/data
 
@@ -84,6 +83,10 @@ services:
     build:
       context: .
       dockerfile: services/Discount/Discount.API/Dockerfile
+    environment: 
+         - ASPNETCORE_ENVIRONMENT=Development
+         - ASPNETCORE_HTTP_PORTS=8080
+         - DatabaseSettings__ConnectionString=Server=discountdb;Port=5432;Database=DiscountDb;User Id=admin;Password=Password@1;
     container_name: discount.api
     depends_on:
        discountdb:
