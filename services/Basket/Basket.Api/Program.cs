@@ -1,7 +1,9 @@
 using Basket.Application.Commands;
+using Basket.Application.GrpcServices;
 using Basket.Application.Mappers;
 using Basket.Core.Repositories;
 using Basket.Infrastructure.Repositories;
+using Discount.Grpc.Protos;
 using System.Reflection;
 //using Microsoft.OpenApi;
 
@@ -20,6 +22,12 @@ builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(
     Assembly.GetExecutingAssembly(),
     Assembly.GetAssembly(typeof(CreateShoppingCartCommand))!
     ));
+
+//Register GRPC Services
+builder.Services.AddScoped<DiscountGrpcService>();
+builder.Services.AddGrpcClient<DiscountProtoService.DiscountProtoServiceClient>(    
+    cfg => cfg.Address = new Uri(builder.Configuration["GrpcSettings:DiscountUrl"])
+    );
 
 
 builder.Services.AddApiVersioning(options =>
